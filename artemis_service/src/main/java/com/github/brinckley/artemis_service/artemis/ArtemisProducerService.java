@@ -16,7 +16,7 @@ public class ArtemisProducerService {
 
     private final JmsTemplate jmsTemplate;
 
-    public void sendMessage(String inputMessage) {
+    public void sendMessage(InputMessage inputMessage) {
         log.info("Sending message to Artemis {}", inputMessage);
         jmsTemplate.convertAndSend(artemisProperties.getInputQueueName(), inputMessage);
         log.info("Successfully sent message {} to Artemis queue {}", inputMessage,
