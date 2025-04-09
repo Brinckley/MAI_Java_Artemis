@@ -23,7 +23,7 @@ public class ArtemisConsumerService {
 
     @JmsListener(destination = "${app.queues.output}")
     public void receiveMessage(OutputMessage outputMessage) {
-        log.info("Received message : {} from queue {}", outputMessage, outputMessage);
+        log.info("Received message : {} from queue {}", outputMessage, outputQueue);
         messageRepository.save(outputMessage);
     }
 }
