@@ -70,9 +70,11 @@ public class ArtemisConfig {
     }
 
     @Bean
-    public DefaultJmsListenerContainerFactory jmsListenerContainerFactory(ConnectionFactory connectionFactory) {
+    public DefaultJmsListenerContainerFactory jmsListenerContainerFactory(ConnectionFactory connectionFactory,
+                                                                          MappingJackson2MessageConverter messageConverter) {
         DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactory = new DefaultJmsListenerContainerFactory();
         defaultJmsListenerContainerFactory.setConnectionFactory(connectionFactory);
+        defaultJmsListenerContainerFactory.setMessageConverter(messageConverter);
         defaultJmsListenerContainerFactory.setConcurrency("1-1");
         defaultJmsListenerContainerFactory.setPubSubDomain(false);
 

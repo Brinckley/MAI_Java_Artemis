@@ -1,11 +1,11 @@
 package com.github.brinckley.artemis_service.repository;
 
-import com.github.brinckley.artemis_service.model.OutputMessage;
+import com.github.brinckley.artemis_service.model.InputMessage;
 
 import java.util.Optional;
 
 public interface MessageRepository {
-    void save(OutputMessage outputMessage);
+    void save(InputMessage outputMessage);
 
-    Optional<OutputMessage> getLatest();
+    Optional<InputMessage> getLatest();
 }

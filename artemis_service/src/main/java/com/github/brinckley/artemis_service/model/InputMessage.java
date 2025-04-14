@@ -8,12 +8,18 @@ import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
 import org.springframework.validation.annotation.Validated;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 @Data
 @Builder
 @Jacksonized
 @Validated
 @AllArgsConstructor
-public class InputMessage {
+public class InputMessage implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -163724222695237462L;
+
     @JsonProperty("message")
     @NotNull(message = "Message cannot be null")
     private String message;
